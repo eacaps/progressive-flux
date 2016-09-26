@@ -1,0 +1,14 @@
+{
+  "short_name": "Progressive Flux Todo",
+  "name": "Progressive Flux Todo",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/assets/forum_logo_yellow.png",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/pwa/index.html",
+  "theme_color": "#a040a0",
+  "background_color": "#EEEEEE"
+}
