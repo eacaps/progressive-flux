@@ -29,7 +29,7 @@ module.exports = {
 	devtool: 'source-map',
 	output: {
 		path: path.join(__dirname, '../public/dist/'),
-		filename: 'pwa-bundle.js'
+		filename: 'app-bundle.js'
 	},
 	resolve: resolve,
 	module: module_obj,

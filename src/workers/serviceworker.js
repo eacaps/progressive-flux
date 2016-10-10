@@ -1,12 +1,12 @@
-var file_cache = 'ffa-pwa-files';
+var file_cache = 'todo-pwa-files';
 var filesToCache = [
-  '/pwa/',
-  '/pwa/pwa.css',
-  '/pwa/manifest.json',
-  '/assets/forum_logo_yellow.png',
-  '/pwa/pwa-bundle.js',
-  '/pwa/theworker.js',
-  '/pwa/index.html'
+  '/assets/pwa.css',
+  '/manifest.json',
+  '/assets/forum_logo.png',
+  '/dist/fluxworker-bundle.js',
+  '/dist/serviceworker-bundle.js',
+  '/dist/app-bundle.js',
+  '/index.html'
 ];
 
 //on install, cache the relevant files
