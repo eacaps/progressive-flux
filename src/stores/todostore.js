@@ -27,6 +27,10 @@ class TodoStore extends BaseStore {
     return 'TodoStore';
   }
 
+  getState() {
+    return Object.assign({}, StoreData);
+  }
+
   _addTodo(data) {
     if(data != null && StoreData.todos.indexOf(data) < 0) {
       StoreData.todos.push(data);
@@ -51,10 +55,13 @@ TodoDispatcher.register((payload) => {
   let action = payload.action;
   let data = action.data;
   switch(action.type) {
-    case ServerEvents.ADD_TODO: {
+    case Events.ADD_TODO: {
       _TodoStore._addTodo(data);
     }
     break;
+    case Events.LIST_TODOS: {
+      _TodoStore.initData(data, true);
+    }
     default:
     break;
   }

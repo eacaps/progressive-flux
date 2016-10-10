@@ -4,7 +4,10 @@
   "description": "Sample React Flux Progressive web app",
   "main": "index.js",
   "scripts": {
+    "watch": "webpack -w --config webpack/pwa.app.config.js & webpack -w --config webpack/pwa.serviceworker.config.js & webpack -w --config webpack/pwa.webworker.config.js",
     "build": "webpack --config webpack/pwa.app.config.js & webpack --config webpack/pwa.serviceworker.config.js & webpack --config webpack/pwa.webworker.config.js",
+    "server": "node src/server/server.js",
+    "dev": "npm run server & npm run watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,7 +33,9 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "dexie": "^1.4.2",
+    "express": "^4.14.0",
     "flux": "^2.1.1",
+    "jfs": "^0.2.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "webpack": "^1.13.2"

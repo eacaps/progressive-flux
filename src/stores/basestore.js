@@ -3,12 +3,10 @@
 import CommonWorker from '../workers/commonworker';
 import {EventEmitter} from 'events';
 
-let StoreData;
-
 export default class BaseStore extends EventEmitter {
   constructor() {
     super();
-    this._initData();
+    this.initData();
     let this_ = this;
     if(CommonWorker.getWorker()) {
       CommonWorker.getWorker().addEventListener('message', (e) => {
@@ -31,10 +29,6 @@ export default class BaseStore extends EventEmitter {
     this.emit('CHANGE');
   }
 
-
-  getState() {
-    return Object.assign({}, StoreData);
-  }
   addChangeListener(cb) {
     this.on('CHANGE', cb)
   }
