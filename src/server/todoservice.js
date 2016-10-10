@@ -1,12 +1,14 @@
 var Store = require("jfs");
-var db = new Store("../../data/data.json");
+var db = new Store("data/data.json");
 
 module.exports = {
   listTodos: () => {
     var objs = db.allSync();
     return objs;
   },
-  saveTodo: (todo) => {
-    var id = db.saveSync(new Date().getTime(), todo);
+  saveTodo: (text) => {
+    let id = new Date().getTime();
+    db.saveSync(id, text);
+    return id;
   }
 }

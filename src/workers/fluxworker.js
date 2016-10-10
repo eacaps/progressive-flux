@@ -28,7 +28,7 @@ let RegisterStore = (store) => {
     .then(function (results) {
         // do something with the results
         let state = results[0].value;
-        store._initData(state, true);
+        store.initData(state, true);
     });
 };
 

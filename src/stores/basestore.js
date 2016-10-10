@@ -13,7 +13,7 @@ export default class BaseStore extends EventEmitter {
         let data = e.data;
         if(data.store) {
           if(data.store === this_.getName()) {
-            this_._initData(data.state, true);
+            this_.initData(data.state, true);
           }
         }
       }, false);

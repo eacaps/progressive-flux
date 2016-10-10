@@ -3,7 +3,7 @@ let WORKER = null;
 class CommonWorker {
   constructor() {
     if(typeof(document) !== 'undefined') {
-      WORKER = new Worker('/dist/fluxworker.js');
+      WORKER = new Worker('/dist/fluxworker-bundle.js');
     }
   }
   getWorker() {

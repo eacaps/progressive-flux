@@ -2,6 +2,7 @@
 
 import CommonWorker from '../workers/commonworker';
 import TodoDispatcher from '../dispatcher/tododispatcher';
+import Events from '../dispatcher/events';
 import {EventEmitter} from 'events';
 import BaseStore from './basestore';
 
@@ -31,19 +32,13 @@ class TodoStore extends BaseStore {
     return Object.assign({}, StoreData);
   }
 
-  _addTodo(data) {
-    if(data != null && StoreData.todos.indexOf(data) < 0) {
-      StoreData.todos.push(data);
-      this._emitChange();
+  process_list(todos) {
+    StoreData.todos = [];
+    for(let key of Object.keys(todos)) {
+      let todo = todos[key];
+      StoreData.todos.push(todo);
     }
-  }
-
-  _removeTodo(data) {
-    if(data != null && StoreData.todos.indexOf(data) > -1) {
-      let idx = StoreData.todos.indexOf(data);
-      StoreData.todos.splice(idx, 1);
-      this._emitChange();
-    }
+    this._emitChange();
   }
 }
 
@@ -55,12 +50,8 @@ TodoDispatcher.register((payload) => {
   let action = payload.action;
   let data = action.data;
   switch(action.type) {
-    case Events.ADD_TODO: {
-      _TodoStore._addTodo(data);
-    }
-    break;
     case Events.LIST_TODOS: {
-      _TodoStore.initData(data, true);
+      _TodoStore.process_list(data.todos);
     }
     default:
     break;

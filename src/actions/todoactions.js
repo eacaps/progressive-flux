@@ -3,14 +3,25 @@ import Events from '../dispatcher/events';
 
 export default {
   listTodos: () => {
-    fetch('/todos').then((data) => {
+    return fetch('/todos').then((response) => {
+      return response.json();
+    }).then((data) => {
       Dispatcher.handleAction({
         type: Events.LIST_TODOS,
         data: data
       });
     });
   },
-  addTodo: () => {
-
+  addTodo: (text) => {
+    return fetch('/todos',{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({text: text})
+    }).then((response) => {
+      return response.json();
+    });
   }
 }
