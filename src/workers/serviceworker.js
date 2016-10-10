@@ -1,10 +1,11 @@
 var file_cache = 'todo-pwa-files';
 var filesToCache = [
+  '/',
   '/assets/pwa.css',
   '/manifest.json',
   '/assets/forum_logo.png',
   '/dist/fluxworker-bundle.js',
-  '/dist/serviceworker-bundle.js',
+  '/serviceworker-bundle.js',
   '/dist/app-bundle.js',
   '/index.html'
 ];

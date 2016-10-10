@@ -28,7 +28,7 @@ module.exports = {
 	entry: entry,
 	devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
 	output: {
-		path: path.join(__dirname, '../public/dist/'),
+		path: path.join(__dirname, '../public/'),
 		filename: 'serviceworker-bundle.js'
 	},
 	resolve: resolve,

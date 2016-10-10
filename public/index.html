@@ -24,11 +24,11 @@
   <title>Forum For All</title>
   <link rel="stylesheet" type="text/css" href="assets/pwa.css">
   <script>
-  // if ('serviceWorker' in navigator) {
-  //     navigator.serviceWorker
-  //              .register('dist/serviceworker-bundle.js')
-  //              .then(function() { console.log('Service Worker Registered'); });
-  //   }
+  if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+               .register('serviceworker-bundle.js')
+               .then(function() { console.log('Service Worker Registered'); });
+    }
 
   </script>
 </head>
